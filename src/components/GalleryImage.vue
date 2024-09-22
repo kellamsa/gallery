@@ -1,7 +1,7 @@
 <template>
   <img
     :alt="alt"
-    :class="{ 'gallery-image': true, 'gallery-image--expanded': hovering }"
+    :class="{ 'gallery-image': true }"
     :src="src"
     @mouseover="hovering = true"
     @mouseleave="hovering = false"
@@ -27,10 +27,7 @@ const props = defineProps({
   .gallery-image {
     width: auto;
     height: 200px;
-    transition: transform 0.3s ease;
-
-    &--expanded {
-      transform: scale(1.05);
-    }
+    border-radius: 8px;
+    cursor: pointer;
   }
 </style>

@@ -1,12 +1,14 @@
 <template>
-  <template v-for="src in imageSources">
-    <GalleryImage
-      alt="art image"
-      :src="src"
-      @click="openImageModal(src)"
-    >
-    </GalleryImage>
-  </template>
+  <div style="display: flex; flex-wrap: wrap;">
+    <template v-for="src in imageSources">
+      <GalleryImage
+        alt="art image"
+        :src="src"
+        @click="openImageModal(src)"
+      >
+      </GalleryImage>
+    </template>
+  </div>
   <BaseModal
     v-if="imageModalOpen"
     @close="closeImageModal"

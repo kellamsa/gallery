@@ -2,14 +2,25 @@
   <div
     class="home-container"
   >
-    <img
-      class="featured-image"
-      alt="featured image"
-      src="/src/assets/images/art-1.png"
-    />
+    <div class="featured-image">
+      <img
+        alt="featured image"
+        src="/src/assets/images/art-1.png"
+      />
+      <div style="position: absolute; left: 0; bottom: 0; padding: 1rem;">
+        <button class="fancy">
+          View the Collection
+        </button>
+      </div>
+    </div>
     <div class="fancy" style="font-size: 2rem; padding: 2rem;">
       Interior designer and decorator by day artist by night! Follow your art!
     </div>
+  </div>
+  <div
+    class="home-container"
+  >
+    Another test
   </div>
 </template>
 
@@ -19,14 +30,31 @@
 
 <style scoped lang="scss">
 .home-container {
-  display: flex;
-  height: 100%;
   padding-bottom: 2rem;
+  min-height: 100vh;
 }
 
 .featured-image {
-  width: auto;
-  height: 100%;
-  max-height: 100%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  button {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  button:hover {
+    transition: background-color 0.2s ease-in;
+    background-color: lavender;
+  }
 }
 </style>

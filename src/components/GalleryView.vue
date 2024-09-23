@@ -1,10 +1,12 @@
 <template>
-  <div style="display: flex; flex-wrap: wrap;">
-    <template v-for="src in imageSources">
+  <div class="gallery">
+    <template v-for="(src, index) in imageSources">
       <GalleryImage
         alt="art image"
         :src="src"
         @click="openImageModal(src)"
+        :style="{ 'grid-area': imageDimensions(index) }"
+        class="gallery-image"
       >
       </GalleryImage>
     </template>
@@ -31,6 +33,20 @@ const closeImageModal = () => {
 
 }
 
+const imageDimensions = (index) => {
+  const indexToDimensions = {
+    0: '1 / 1 / 3 / 3',
+    1: '1 / 3 / 1 / 3',
+    2: '1 / 4 / 1 / 4',
+    4: '2 / 3 / 2 / 5',
+    5: '2 / 5 / 5 / 6'
+  }
+
+  if (indexToDimensions) return indexToDimensions[index]
+
+  return { row: '', column: '' }
+}
+
 onMounted(() => {
   const images = import.meta.glob('../assets/images/art-*.png')
 
@@ -49,11 +65,11 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  grid-column: center-start;
-  gap: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  row-gap: 0.5rem;
+  grid-template-rows: 200px 200px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding: 1rem 0.5rem;
 }
 </style>

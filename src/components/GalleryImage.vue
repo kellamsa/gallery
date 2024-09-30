@@ -4,6 +4,7 @@
     :style="{ 'background-image': `url(${src})` }"
     @mouseover="hovering = true"
     @mouseleave="hovering = false"
+    @click="$emit('click')"
   >
   </div>
 </template>

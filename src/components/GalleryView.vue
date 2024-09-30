@@ -11,26 +11,30 @@
       </GalleryImage>
     </template>
   </div>
-  <BaseModal
+  <GalleryImageModal
     v-if="imageModalOpen"
+    :activeImage="activeImage"
     @close="closeImageModal"
   />
 </template>
 
 <script setup>
 import GalleryImage from '@components/GalleryImage.vue'
-import BaseModal from '@components/BaseModal.vue'
+import GalleryImageModal from '@components/GalleryImageModal.vue'
 import { onMounted, ref } from 'vue';
 
-let imageSources = ref([])
-let imageModalOpen = ref(false)
+const imageSources = ref([])
+const imageModalOpen = ref(false)
+const activeImage = ref(null)
 
-const openImageModal = () => {
-
+const openImageModal = (src) => {
+  console.log(src)
+  activeImage.value = src
+  imageModalOpen.value = true
 }
 
 const closeImageModal = () => {
-
+  imageModalOpen.value = false
 }
 
 const imageDimensions = (index) => {

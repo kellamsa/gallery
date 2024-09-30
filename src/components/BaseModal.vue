@@ -8,15 +8,26 @@
 </template>
 
 <script setup>
+const emit = defineEmits([''])
+
 function closeModal() {
   $emit('close')
 }
 
-defineExpose({ openModal, closeModal });
+const props = defineProps({
+  width: {
+    type: String
+  },
+  open: {
+    type: Boolean
+  },
+})
 </script>
 
 <style scoped>
 .modal-overlay {
+  width: fit-content;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;

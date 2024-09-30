@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    v-if="open"
+  >
     
   </div>
 </template>

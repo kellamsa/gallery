@@ -11,6 +11,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { art } from '../data'
 
 const hovering = ref(false)
 
@@ -26,6 +27,7 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
   .gallery-image {
+    position: relative;
     cursor: pointer;
     background-size: cover;
     background-repeat: no-repeat;
@@ -33,5 +35,9 @@ const props = defineProps({
     width: 100%;
     height: auto;
     border-radius: 8px
+  }
+
+  .gallery-image-description {
+
   }
 </style>

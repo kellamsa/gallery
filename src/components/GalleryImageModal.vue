@@ -9,6 +9,10 @@
       @mouseleave="hovering = false"
       @click="closeImageModal()"
     >
+      <div class="modal-image-footer">
+        <div>The Yellow Flower</div>
+        <div>A yellow flower</div>
+      </div>
     </div>
   </BaseModal>
 </template>
@@ -31,6 +35,7 @@ function closeImageModal() {
 
 <style lang="scss" scoped>
 .modal-image {
+  position: relative;
   cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
@@ -39,7 +44,10 @@ function closeImageModal() {
   height: 100%;
 }
 
-.modal-footer {
-  background-color: white;
+.modal-image-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 </style>

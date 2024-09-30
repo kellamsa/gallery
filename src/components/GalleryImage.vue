@@ -1,20 +1,11 @@
 <template>
-  <div class="gallery-image-container">
-    <div
-      class="gallery-image"  
-      :style="{ 'background-image': `url(${src})`, 'background-size': 'cover' }"
-      @mouseover="hovering = true"
-      @mouseleave="hovering = false"
-    >
-    </div>
-  </div>
-  <!-- <img
-    :alt="alt"
-    :class="{ 'gallery-image': true }"
-    :src="src"
+  <div
+    class="gallery-image"  
+    :style="{ 'background-image': `url(${src})` }"
     @mouseover="hovering = true"
     @mouseleave="hovering = false"
-  /> -->
+  >
+  </div>
 </template>
 
 <script setup>
@@ -35,10 +26,11 @@ const props = defineProps({
 <style lang="scss" scoped>
   .gallery-image {
     cursor: pointer;
-    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: auto;
     border-radius: 8px
   }
 </style>

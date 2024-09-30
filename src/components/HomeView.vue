@@ -5,7 +5,7 @@
     <div class="featured-image">
       <img
         alt="featured image"
-        src="/src/assets/images/art-1.png"
+        src="/src/assets/images/art-4.jpg"
       />
       <div style="position: absolute; left: 0; bottom: 0; padding: 1rem;">
         <button class="fancy">

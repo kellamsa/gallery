@@ -39,7 +39,7 @@ const imageDimensions = (index) => {
     1: '1 / 3 / 1 / 3',
     2: '1 / 4 / 1 / 4',
     4: '2 / 3 / 2 / 5',
-    5: '2 / 5 / 5 / 6'
+    5: '2 / 5 / 3 / 6'
   }
 
   if (indexToDimensions) return indexToDimensions[index]
@@ -48,7 +48,7 @@ const imageDimensions = (index) => {
 }
 
 onMounted(() => {
-  const images = import.meta.glob('../assets/images/art-*.png')
+  const images = import.meta.glob('../assets/images/art-*.*')
 
   for (const path in images) {
     images[path]().then((module) => {
@@ -66,10 +66,22 @@ onMounted(() => {
 <style lang="scss" scoped>
 .gallery {
   display: grid;
-  gap: 0.5rem;
-  row-gap: 0.5rem;
+  gap: 1rem;
   grid-template-rows: 200px 200px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding: 1rem 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 720px) {
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery-image {
+    height: 400px;
+    width: 100%;
+  }
 }
 </style>

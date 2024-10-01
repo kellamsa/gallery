@@ -28,7 +28,6 @@ const imageModalOpen = ref(false)
 const activeImage = ref(null)
 
 const openImageModal = (src) => {
-  console.log(src)
   activeImage.value = src
   imageModalOpen.value = true
 }

@@ -2,16 +2,15 @@
   <div class="modal-overlay" @click.self="closeModal">
     <div class="modal-content">
       <slot></slot>
-      <button @click="closeModal">Close</button>
     </div>
   </div>
 </template>
 
 <script setup>
-const emit = defineEmits([''])
+const emit = defineEmits(['close'])
 
 function closeModal() {
-  $emit('close')
+  emit('close')
 }
 
 const props = defineProps({
@@ -26,7 +25,7 @@ const props = defineProps({
 
 <style scoped>
 .modal-overlay {
-  width: fit-content;
+  width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
@@ -40,7 +39,8 @@ const props = defineProps({
 }
 
 .modal-content {
-  background: white;
+  width: 100%;
+  height: 100%;
   padding: 20px;
   border-radius: 8px;
 }

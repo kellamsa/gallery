@@ -2,11 +2,13 @@
   <BaseModal
     @close="closeImageModal"
   >
-    <div style="height: 100%;">
-      <img
-        style="object-fit: contain"
-        :src="activeImage"
-      />
+    <div
+      class="modal-image"  
+      :style="{ 'background-image': `url(${activeImage})` }"
+      @mouseover="hovering = true"
+      @mouseleave="hovering = false"
+      @click="closeImageModal()"
+    >
     </div>
   </BaseModal>
 </template>
@@ -20,7 +22,24 @@ const props = defineProps({
   }
 })
 
+const emits = defineEmits(['close'])
+
 function closeImageModal() {
-  $emit('close')
+  emits('close')
 }
 </script>
+
+<style lang="scss" scoped>
+.modal-image {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
+  height: 100%;
+}
+
+.modal-footer {
+  background-color: white;
+}
+</style>

@@ -1,17 +1,17 @@
 <template>
   <BaseModal
     @close="closeImageModal"
-  >
-    <div
-      class="modal-image"  
-      :style="{ 'background-image': `url(${activeImage})` }"
-      @mouseover="hovering = true"
-      @mouseleave="hovering = false"
-      @click="closeImageModal()"
-    >
-      <div class="modal-image-footer">
-        <div>The Yellow Flower</div>
-        <div>A yellow flower</div>
+  > 
+    <div style="display: flex; height: 100%;">
+      <img
+        class="modal-image"  
+        :src="activeImage"
+        @mouseover="hovering = true"
+        @mouseleave="hovering = false"
+        @click="closeImageModal()"
+      />
+      <div style="padding: 2rem; position: absolute; bottom: 0; right: 0;">
+        <InfoIcon style="fill: white; height: 50px; width: 50px;" />
       </div>
     </div>
   </BaseModal>
@@ -19,6 +19,7 @@
 
 <script setup>
 import BaseModal from '@components/BaseModal.vue'
+import InfoIcon from '@components/InfoIcon.vue'
 
 const props = defineProps({
   activeImage: {

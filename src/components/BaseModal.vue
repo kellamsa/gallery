@@ -39,9 +39,8 @@ const props = defineProps({
 }
 
 .modal-content {
-  width: 100%;
-  height: 100%;
-  padding: 20px;
+  height: 80%;
+  padding: 1.5rem;
   border-radius: 8px;
 }
 </style>

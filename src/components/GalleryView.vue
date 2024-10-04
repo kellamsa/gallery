@@ -22,6 +22,7 @@
 import GalleryImage from '@components/GalleryImage.vue'
 import GalleryImageModal from '@components/GalleryImageModal.vue'
 import { onMounted, ref } from 'vue';
+import { art, artOrder } from '../data'
 
 const imageSources = ref([])
 const imageModalOpen = ref(false)
@@ -51,13 +52,9 @@ const imageDimensions = (index) => {
 }
 
 onMounted(() => {
-  const images = import.meta.glob('../assets/images/art-*.*')
-
-  for (const path in images) {
-    images[path]().then((module) => {
-      imageSources.value.push(module.default) // Add the image path to the array
-    })
-  }
+  imageSources.value = artOrder.map((order) => {
+    return `/src/assets/images/${art[order].filename}`
+  })
 
   const openImageModal = () => {
   

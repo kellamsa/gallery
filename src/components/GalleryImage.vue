@@ -11,7 +11,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import { art } from '../data'
 
 const hovering = ref(false)
 

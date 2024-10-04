@@ -39,7 +39,7 @@ const props = defineProps({
 }
 
 .modal-content {
-  height: 80%;
+  height: 100%;
   padding: 1.5rem;
   border-radius: 8px;
 }

@@ -10,7 +10,15 @@
         @mouseleave="hovering = false"
         @click="closeImageModal()"
       />
-      <div style="padding: 2rem; position: absolute; bottom: 0; right: 0;">
+      <div
+        v-if="showInfo"
+        style="padding: 1rem; position: absolute; left: 0; bottom: 0; width: 100%; display: flex; gap: 1rem; align-items: center; background: rgba(0, 0, 0, 0.5);"
+      >
+        <div style="font-size: 2rem; color: white;">
+          {{ artData.title }} | ${{ artData.price }}
+        </div>
+      </div>
+      <div @click="showInfo = !showInfo" style="padding: 1rem; position: absolute; bottom: 0; right: 0; cursor: pointer;">
         <InfoIcon style="fill: white; height: 50px; width: 50px;" />
       </div>
     </div>
@@ -20,6 +28,9 @@
 <script setup>
 import BaseModal from '@components/BaseModal.vue'
 import InfoIcon from '@components/InfoIcon.vue'
+import { art } from '../data'
+import { computed, ref } from 'vue';
+
 
 const props = defineProps({
   activeImage: {
@@ -27,20 +38,34 @@ const props = defineProps({
   }
 })
 
+const showInfo = ref(false)
+
 const emits = defineEmits(['close'])
 
 function closeImageModal() {
   emits('close')
 }
+
+const imageIndex = computed(() => {
+  const match = props.activeImage.match(/-(\d+)\.[^.]+$/);
+
+  if (!match) return -1
+  
+  return match[1]
+})
+
+const artData = computed(() => {
+  if (imageIndex.value < 0) return {}
+
+  return art[imageIndex.value]
+})
 </script>
 
 <style lang="scss" scoped>
 .modal-image {
   position: relative;
   cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  object-fit: contain;
   width: auto;
   height: 100%;
 }

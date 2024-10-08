@@ -2,9 +2,10 @@
 <template>
   <div class="app-container">
     <nav class="nav">
-      <RouterLink to="/" class="fancy">The Ena Stewart Collection</RouterLink>
-      <div class="nav-right fancy">
-        <RouterLink to="/gallery">Gallery</RouterLink>
+      <RouterLink to="/">Ena Stewart</RouterLink>
+      <div class="nav-right">
+        <RouterLink to="/">Gallery</RouterLink> |
+        <RouterLink to="/about">About</RouterLink>
       </div>
     </nav>
     <main>

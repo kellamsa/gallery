@@ -5,7 +5,6 @@
         alt="art image"
         :src="src"
         @click="openImageModal(src)"
-        :style="{ 'grid-area': imageDimensions(index) }"
         class="gallery-image"
       >
       </GalleryImage>
@@ -37,20 +36,6 @@ const closeImageModal = () => {
   imageModalOpen.value = false
 }
 
-const imageDimensions = (index) => {
-  const indexToDimensions = {
-    0: '1 / 1 / 3 / 3',
-    1: '1 / 3 / 1 / 3',
-    2: '1 / 4 / 1 / 4',
-    4: '2 / 3 / 2 / 5',
-    5: '2 / 5 / 3 / 6'
-  }
-
-  if (indexToDimensions) return indexToDimensions[index]
-
-  return { row: '', column: '' }
-}
-
 onMounted(() => {
   imageSources.value = artOrder.map((order) => {
     return `/src/assets/images/${art[order].filename}`
@@ -67,10 +52,21 @@ onMounted(() => {
 .gallery {
   display: grid;
   gap: 1rem;
-  grid-template-rows: 200px 200px;
+  grid-auto-rows: 400px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .gallery {
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 400px;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 }
 
 @media screen and (max-width: 720px) {

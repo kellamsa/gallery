@@ -64,43 +64,8 @@ export const art = {
     collection: '',
     filename: 'art-9.jpg'
   },
-  10: {
-    title: '',
-    description: '',
-    price: '',
-    collection: '',
-    filename: 'art-10.jpg'
-  },
-  11: {
-    title: '',
-    description: '',
-    price: '',
-    collection: '',
-    filename: 'art-11.jpg'
-  },
-  12: {
-    title: '',
-    description: '',
-    price: '',
-    collection: '',
-    filename: 'art-12.jpg'
-  },
-  13: {
-    title: '',
-    description: '',
-    price: '',
-    collection: '',
-    filename: 'art-13.jpg'
-  },
-  14: {
-    title: '',
-    description: '',
-    price: '',
-    collection: '',
-    filename: 'art-14.jpg'
-  },
 }
 
 export const artOrder = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+  1, 2, 3, 4, 5, 6, 7, 8, 9
 ]

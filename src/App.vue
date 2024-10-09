@@ -4,7 +4,11 @@
     <nav class="nav">
       <RouterLink to="/">Ena Stewart</RouterLink>
       <div class="nav-right">
-        <RouterLink to="/">Gallery</RouterLink> |
+        <RouterLink to="/">
+          <BrushIcon/>
+          Gallery
+        </RouterLink> |
+        <RouterLink to="/archive">Archive</RouterLink> |
         <RouterLink to="/about">About</RouterLink>
       </div>
     </nav>
@@ -16,6 +20,7 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+import { BrushIcon } from '@components/BrushIcon.vue'
 
 </script>
 

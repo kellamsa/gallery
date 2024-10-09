@@ -2,10 +2,11 @@ export const art = {
   1: {
     title: 'The Yellow Flower',
     description: '',
-    price: '10',
     collection: '',
     sold: false,
-    filename: 'art-1.jpg'
+    filename: 'art-1.jpg',
+    archived: true,
+    dimensions: '16 x 20'
   },
   2: {
     title: 'The Red Flower',
@@ -13,12 +14,12 @@ export const art = {
     price: '20',
     collection: '',
     sold: true,
-    filename: 'art-2.jpg'
+    filename: 'art-2.jpg',
+    archived: true
   },
   3: {
     title: 'Sublime Onions',
     description: 'It will bring a tear to your eye.',
-    price: '10',
     collection: '',
     filename: 'art-3.jpg'
   },
@@ -34,14 +35,16 @@ export const art = {
     description: '',
     price: '600',
     collection: '',
-    filename: 'art-5.jpg'
+    filename: 'art-5.jpg',
+    archived: true
   },
   6: {
     title: 'Grey Fruit',
     description: '',
     price: '',
     collection: '',
-    filename: 'art-6.jpg'
+    filename: 'art-6.jpg',
+    archived: true
   },
   7: {
     title: 'The Jacket',
@@ -62,8 +65,9 @@ export const art = {
     description: '',
     price: '',
     collection: '',
-    filename: 'art-9.jpg'
-  },
+    filename: 'art-9.jpg',
+    archived: true
+  }
 }
 
 export const artOrder = [

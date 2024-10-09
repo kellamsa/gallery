@@ -12,10 +12,13 @@
       />
       <div
         v-if="showInfo"
-        style="padding: 1rem; position: absolute; left: 0; bottom: 0; width: 100%; display: flex; gap: 1rem; align-items: center; background: rgba(0, 0, 0, 0.5);"
+        style="height: 100%; position: absolute; left: 0; bottom: 0; width: 100%; display: flex; flex-direction: column; gap: 1rem; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.5);"
       >
+        <div style="font-size: 3rem; color: white;">
+          {{ artData.title }}
+        </div>
         <div style="font-size: 2rem; color: white;">
-          {{ artData.title }} | ${{ artData.price }}
+          {{ artData.dimensions }}
         </div>
       </div>
       <div @click="showInfo = !showInfo" style="padding: 1rem; position: absolute; bottom: 0; right: 0; cursor: pointer;">

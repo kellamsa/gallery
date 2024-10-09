@@ -38,8 +38,10 @@ const closeImageModal = () => {
 
 onMounted(() => {
   imageSources.value = artOrder.map((order) => {
+    if (art[order].archived) return null
+
     return `/src/assets/images/${art[order].filename}`
-  })
+  }).filter((art) => art)
 
   const openImageModal = () => {
   
@@ -66,6 +68,7 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr 1fr;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 }
 

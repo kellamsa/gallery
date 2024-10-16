@@ -13,6 +13,7 @@
       <div
         v-if="showInfo"
         style="height: 100%; position: absolute; left: 0; bottom: 0; width: 100%; display: flex; flex-direction: column; gap: 1rem; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.5);"
+        @click="showInfo = false"
       >
         <div style="font-size: 3rem; color: white;">
           {{ artData.title }}
@@ -21,9 +22,9 @@
           {{ artData.dimensions }}
         </div>
       </div>
-      <div @click="showInfo = !showInfo" style="padding: 1rem; position: absolute; bottom: 0; right: 0; cursor: pointer;">
+      <button @click="showInfo = !showInfo" style="padding: 1rem; position: absolute; bottom: 0; right: 0; cursor: pointer; background: rgba(0, 0, 0, 0); border: none">
         <InfoIcon style="fill: white; height: 50px; width: 50px;" />
-      </div>
+      </button>
     </div>
   </BaseModal>
 </template>

@@ -5,31 +5,30 @@
       <RouterLink to="/">Ena Stewart</RouterLink>
       <div class="nav-right">
         <RouterLink to="/">
-          <div class="flex align-center" style="gap: 0.2rem">
+          <button class="nav-button" style="gap: 0.2rem">
             <BrushIcon style="width: 2rem; height: 2rem; fill: black;" />
             <span class="nav-text">Gallery</span>
-          </div>
+          </button>
         </RouterLink> |
         <RouterLink to="/archive">
-          <div class="flex align-center" style="gap: 0.2rem">
+          <button class="nav-button" style="gap: 0.2rem">
             <PhotoAlbumIcon style="width: 2rem; height: 2rem; fill: black;" />
             <span class="nav-text">Archive</span>
-          </div>
+          </button>
         </RouterLink> |
         <RouterLink to="/about">
-          <div class="flex align-center" style="gap: 0.2rem">
+          <button class="nav-button" style="gap: 0.2rem">
             <PersonIcon style="width: 2rem; height: 2rem; fill: black;" />
             <span class="nav-text">About</span>
-          </div>
+          </button>
         </RouterLink>
       </div>
-      <div
+      <button
         class="nav-right-mobile"
-        style="z-index: 1001"
         @click="showMenu = !showMenu"
       >
         <MenuIcon style="width: 2rem; height: 2rem; fill: black;" />
-      </div>
+      </button>
     </nav>
     <main>
       <RouterView />
@@ -38,23 +37,23 @@
         class="menu-overlay"
       >
         <div class="menu" :class="{ 'menu-active': showMenu }">
-          <RouterLink to="/">
-            <div class="flex align-center" style="gap: 0.2rem">
+          <RouterLink to="/" @click="showMenu = false">
+            <button class="nav-button" style="gap: 0.2rem">
               <BrushIcon style="width: 2rem; height: 2rem; fill: black;" />
               <span class="nav-text">Gallery</span>
-            </div>
+            </button>
           </RouterLink>
-          <RouterLink to="/archive">
-            <div class="flex align-center" style="gap: 0.2rem">
+          <RouterLink to="/archive" @click="showMenu = false">
+            <button class="nav-button" style="gap: 0.2rem">
               <PhotoAlbumIcon style="width: 2rem; height: 2rem; fill: black;" />
               <span class="nav-text">Archive</span>
-            </div>
+            </button>
           </RouterLink>
-          <RouterLink to="/about">
-            <div class="flex align-center" style="gap: 0.2rem">
+          <RouterLink to="/about" @click="showMenu = false">
+            <button class="nav-button" style="gap: 0.2rem">
               <PersonIcon style="width: 2rem; height: 2rem; fill: black;" />
               <span class="nav-text">About</span>
-            </div>
+            </button>
           </RouterLink>
         </div>
       </div>
@@ -92,6 +91,14 @@ main {
   background-color: white;
 }
 
+.nav-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  padding: none;
+}
+
 .nav-right {
   display: flex;
   gap: 1rem;
@@ -99,6 +106,8 @@ main {
 
 .nav-right-mobile {
   display: none;
+  background: rgba(0, 0, 0, 0);
+  border: none;
 }
 
 .footer {
@@ -122,6 +131,7 @@ main {
 
 .menu {
   display: flex;
+  font-size: 2rem;
   flex-direction: column;
   gap: 1rem;
   width: 0px;

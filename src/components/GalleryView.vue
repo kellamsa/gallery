@@ -36,16 +36,26 @@ const closeImageModal = () => {
   imageModalOpen.value = false
 }
 
-onMounted(() => {
-  imageSources.value = artOrder.map((order) => {
-    if (art[order].archived) return null
+onMounted(async () => {
+  const imageModules = import.meta.glob('/src/assets/images/art-*.jpg');
 
-    return `/src/assets/images/${art[order].filename}`
-  }).filter((art) => art)
-
-  const openImageModal = () => {
-  
+  const images = {}
+  for (const path in imageModules) {
+    const match = path.match(/art-(\d+)\.jpg$/)
+    if (match) {
+      const imageNumber = Number(match[1]);
+      
+      images[imageNumber] = { path: path, mod: imageModules[path] }
+    }
   }
+
+  const resolved = await Promise.all(artOrder.map(async imageIndex => {
+    return images[imageIndex].mod()
+  }))
+
+  imageSources.value = resolved.map((mod) => {
+    return mod.default
+  })
 })
 </script>
 

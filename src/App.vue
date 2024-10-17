@@ -23,12 +23,16 @@
           </button>
         </RouterLink>
       </div>
-      <button
-        class="nav-right-mobile"
-        @click="showMenu = !showMenu"
+      <div
+        style="display: flex; align-items: center; height: 3rem;"
       >
-        <MenuIcon style="width: 2rem; height: 2rem; fill: black;" />
-      </button>
+        <button
+          class="nav-right__button"
+          @click="showMenu = !showMenu"
+        >
+          <MenuIcon style="width: 2rem; height: 2rem; fill: black;" />
+        </button>
+      </div>
     </nav>
     <main>
       <RouterView />
@@ -37,23 +41,36 @@
         class="menu-overlay"
       >
         <div class="menu" :class="{ 'menu-active': showMenu }">
+          <div
+            style="display: flex; align-items: center;  margin-left: auto; height: 3rem;"
+          >
+            <button
+              class="nav-right__button"
+              @click="showMenu = !showMenu"
+            >
+              <CloseIcon style="width: 2rem; height: 2rem; fill: black;" />
+            </button>
+          </div>
           <RouterLink to="/" @click="showMenu = false">
-            <button class="nav-button" style="gap: 0.2rem">
+            <nav class="nav-button" style="gap: 0.2rem">
               <BrushIcon style="width: 2rem; height: 2rem; fill: black;" />
               <span class="nav-text">Gallery</span>
-            </button>
+              <ChevronRight style="margin-left: auto; width: 2rem; height: 2rem; fill: black;" />
+            </nav>
           </RouterLink>
           <RouterLink to="/archive" @click="showMenu = false">
-            <button class="nav-button" style="gap: 0.2rem">
+            <nav class="nav-button" style="gap: 0.2rem">
               <PhotoAlbumIcon style="width: 2rem; height: 2rem; fill: black;" />
               <span class="nav-text">Archive</span>
-            </button>
+              <ChevronRight style="margin-left: auto; width: 2rem; height: 2rem; fill: black;" />
+            </nav>
           </RouterLink>
           <RouterLink to="/about" @click="showMenu = false">
-            <button class="nav-button" style="gap: 0.2rem">
+            <nav class="nav-button" style="gap: 0.2rem">
               <PersonIcon style="width: 2rem; height: 2rem; fill: black;" />
               <span class="nav-text">About</span>
-            </button>
+              <ChevronRight style="margin-left: auto; width: 2rem; height: 2rem; fill: black;" />
+            </nav>
           </RouterLink>
         </div>
       </div>
@@ -62,12 +79,14 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router'
 import BrushIcon from '@components/BrushIcon.vue'
-import PhotoAlbumIcon from '@components/PhotoAlbumIcon.vue';
+import PhotoAlbumIcon from '@components/PhotoAlbumIcon.vue'
 import PersonIcon from '@components/PersonIcon.vue'
 import MenuIcon from '@components/MenuIcon.vue'
+import CloseIcon from '@components/CloseIcon.vue'
 import { ref } from 'vue';
+import ChevronRight from './components/ChevronRight.vue'
 
 const showMenu = ref(false)
 
@@ -96,18 +115,22 @@ main {
   align-items: center;
   border: none;
   background: rgba(0, 0, 0, 0);
-  padding: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .nav-right {
   display: flex;
-  gap: 1rem;
 }
 
 .nav-right-mobile {
   display: none;
+}
+
+.nav-right__button {
   background: rgba(0, 0, 0, 0);
   border: none;
+  cursor: pointer;
 }
 
 .footer {
@@ -131,9 +154,13 @@ main {
 
 .menu {
   display: flex;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  position: relative;
+  padding: 0.5rem 2rem;
   font-size: 2rem;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   width: 0px;
   height: 100%;
   background-color: white;

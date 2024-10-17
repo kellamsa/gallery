@@ -36,6 +36,32 @@
     imageModalOpen.value = false
   }
   
+  onMounted(async () => {
+    const imageModules = import.meta.glob('/src/assets/images/art-*.jpg');
+
+    const images = {}
+    for (const path in imageModules) {
+      const match = path.match(/art-(\d+)\.jpg$/)
+      if (match) {
+        const imageNumber = Number(match[1]);
+        
+        images[imageNumber] = { path: path, mod: imageModules[path] }
+      }
+    }
+
+    const resolved = await Promise.all(artOrder.map(async imageIndex => {
+      if (!art[imageIndex].archived) return null
+
+      return images[imageIndex].mod()
+    }))
+
+    imageSources.value = resolved.map((mod) => {
+      if (!mod) return null
+
+      return mod.default
+    }).filter(art => art)
+  })
+
   onMounted(() => {
     imageSources.value = artOrder.map((order) => {
       if (!art[order].archived) return null

@@ -50,12 +50,16 @@ onMounted(async () => {
   }
 
   const resolved = await Promise.all(artOrder.map(async imageIndex => {
+    if (art[imageIndex].archived) return null
+
     return images[imageIndex].mod()
   }))
 
   imageSources.value = resolved.map((mod) => {
+    if (!mod) return null
+
     return mod.default
-  })
+  }).filter(art => art)
 })
 </script>
 

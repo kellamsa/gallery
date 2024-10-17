@@ -3,26 +3,6 @@
   <div class="app-container">
     <nav class="nav">
       <RouterLink to="/">Ena Stewart</RouterLink>
-      <div class="nav-right">
-        <RouterLink to="/">
-          <button class="nav-button" style="gap: 0.2rem">
-            <BrushIcon style="width: 2rem; height: 2rem; fill: black;" />
-            <span class="nav-text">Gallery</span>
-          </button>
-        </RouterLink> |
-        <RouterLink to="/archive">
-          <button class="nav-button" style="gap: 0.2rem">
-            <PhotoAlbumIcon style="width: 2rem; height: 2rem; fill: black;" />
-            <span class="nav-text">Archive</span>
-          </button>
-        </RouterLink> |
-        <RouterLink to="/about">
-          <button class="nav-button" style="gap: 0.2rem">
-            <PersonIcon style="width: 2rem; height: 2rem; fill: black;" />
-            <span class="nav-text">About</span>
-          </button>
-        </RouterLink>
-      </div>
       <div
         style="display: flex; align-items: center; height: 3rem;"
       >

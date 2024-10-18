@@ -35,6 +35,7 @@ import InfoIcon from '@components/InfoIcon.vue'
 import { art } from '../data'
 import { computed, ref } from 'vue';
 
+const filePathRegex = /art-(\d+)(?:-([a-zA-Z0-9]+))?\.(png|jpg)$/
 
 const props = defineProps({
   activeImage: {
@@ -51,7 +52,7 @@ function closeImageModal() {
 }
 
 const imageIndex = computed(() => {
-  const match = props.activeImage.match(/-(\d+)\.[^.]+$/);
+  const match = props.activeImage.match(filePathRegex)
 
   if (!match) return -1
   

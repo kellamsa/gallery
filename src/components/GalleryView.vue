@@ -41,7 +41,7 @@ onMounted(async () => {
 
   const images = {}
   for (const path in imageModules) {
-    const match = path.match(/art-(\d+)\.jpg$/)
+    const match = path.match(/art-(\d+)\.(jpg|png)$/)
     if (match) {
       const imageNumber = Number(match[1]);
       
@@ -70,8 +70,7 @@ onMounted(async () => {
   gap: 1rem;
   grid-auto-rows: 400px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
 }
 
 @media screen and (max-width: 1100px) {

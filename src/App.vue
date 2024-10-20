@@ -2,9 +2,9 @@
 <template>
   <div class="app-container">
     <nav class="nav">
-      <RouterLink to="/">Ena Stewart</RouterLink>
+      Ena Stewart
       <div
-        style="display: flex; align-items: center; height: 3rem;"
+        style="display: flex; align-items: center;"
       >
         <button
           class="nav-right__button"
@@ -22,7 +22,7 @@
       >
         <div class="menu" :class="{ 'menu-active': showMenu }">
           <div
-            style="display: flex; align-items: center;  margin-left: auto; height: 3rem;"
+            style="display: flex; align-items: center; justify-content: flex-end; height: 3rem;"
           >
             <button
               class="nav-right__button"
@@ -52,6 +52,19 @@
               <ChevronRight style="margin-left: auto; width: 2rem; height: 2rem; fill: black;" />
             </nav>
           </RouterLink>
+          <div class="menu__contact">
+            <a href="https://www.instagram.com/enastewartart" target="_blank" class="flex align-center" style="gap: 0.5rem">
+              <InstagramIcon style="fill: black;"/>
+              <span>Visit me on <span style="font-weight: 500; text-decoration:underline">Instagram</span></span>
+            </a>
+            <div>
+              or email me directly 
+            </div>
+            <div class="flex align-center" style="gap: 0.5rem; font-weight: 500;">
+              <MailIcon style="fill: red;"/>
+              enakaren@gmail.com
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -67,6 +80,8 @@ import MenuIcon from '@components/MenuIcon.vue'
 import CloseIcon from '@components/CloseIcon.vue'
 import { ref } from 'vue';
 import ChevronRight from './components/ChevronRight.vue'
+import InstagramIcon from '@components/InstagramIcon.vue'
+import MailIcon from '@components/MailIcon.vue'
 
 const showMenu = ref(false)
 
@@ -97,6 +112,16 @@ main {
   background: rgba(0, 0, 0, 0);
   padding: 0;
   cursor: pointer;
+}
+
+.nav--active {
+  color: #007BFF;
+  fill: #007BFF;
+}
+
+.nav--active .nav-text {
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
 }
 
 .nav-right {
@@ -146,6 +171,20 @@ main {
   background-color: white;
   transition: width 0.3s ease;
   margin-left: auto;
+}
+
+.menu__contact {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 0.75rem; 
+  font-weight: 500;
+  margin-top: auto;
 }
 
 .menu-active {

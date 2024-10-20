@@ -16,6 +16,7 @@ const routes = [
 
 const router = createRouter({
   history: createMemoryHistory(),
+  linkActiveClass: 'nav--active',
   routes,
 })
 
